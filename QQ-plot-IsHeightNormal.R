@@ -1,0 +1,11 @@
+library(dslabs)
+data(heights)
+names(heights)
+x <- heights$height
+m<-mean(x)
+sd<-sd(x)
+p<- seq(0.05, 0.95, 0.05)
+observed_quantile<-quantile(x,p)
+theoretical_quantiles<-qnorm(p,m,sd)
+plot(theoretical_quantiles,observed_quantile)
+abline(0,1)
